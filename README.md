@@ -13,3 +13,10 @@ L'application est le site d'une agence evenementielle.
 
 ## Tests
 - `yarn test`
+
+###
+Notes corrections : 
+
+- First commit : 
+     1) Correction de l'index du slider
+     2) Correction de l'index de l'input radio
