@@ -19,7 +19,7 @@ import Modal from "../../containers/Modal";
 const Page = () => {
   const {data} = useData()
 
-  const [last, setLast] = useState({cover: "../public/logo.512.png", title: "En attente"})
+  const [last, setLast] = useState({cover: "../public/logo.512.png", title: "En attente", type: "catégorie"}) // ajout d'un state intitial pour eviter erreur "undefined" au chargement
 
   useEffect(() => {
 
@@ -142,7 +142,7 @@ const Page = () => {
           title={last?.title}
           date={new Date(last?.date)}
           small
-          label="boom"
+          label={last?.type}
         />
         {/* Définir variable "last" */}
       </div>
