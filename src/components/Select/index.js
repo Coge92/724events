@@ -14,11 +14,11 @@ const Select = ({
   type = "normal",
 }) => {
   const [value, setValue] = useState();
-  const [collapsed, setCollapsed] = useState(true);
+  const [collapsed, setCollapsed] = useState(true); // false
   const changeValue = (newValue) => {
-    onChange();
+    onChange(newValue); // Ajour de la variable pour faire remonter le type de catégorie dans le composant Parent (EventList)
     setValue(newValue);
-    setCollapsed(newValue);
+    setCollapsed(!collapsed); // Modification de la valeur indiquée (newValue) en (!collapsed)
   };
   return (
     <div className={`SelectContainer ${type}`} data-testid="select-testid">

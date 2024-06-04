@@ -1,3 +1,7 @@
+import { useEffect, useState } from "react";
+import { useData } from "../../contexts/DataContext";
+
+
 import Menu from "../../containers/Menu";
 import ServiceCard from "../../components/ServiceCard";
 import EventCard from "../../components/EventCard";
@@ -10,10 +14,27 @@ import Logo from "../../components/Logo";
 import Icon from "../../components/Icon";
 import Form from "../../containers/Form";
 import Modal from "../../containers/Modal";
-import { useData } from "../../contexts/DataContext";
+
 
 const Page = () => {
-  const {last} = useData()
+  const {data} = useData()
+
+  const [last, setLast] = useState({cover: "../public/logo.512.png", title: "En attente"})
+
+  useEffect(() => {
+
+    if (data) {
+      const dataEventSorted = data.events.sort((evtA, evtB) => 
+      new Date(evtA.date) > new Date(evtB.date) ? -1 : 1)
+      const lastEvent = dataEventSorted[0]
+    
+    setLast(lastEvent)
+    }
+  }, [data])
+
+// console.log(last);
+
+  
   return <>
     <header>
       <Menu />
@@ -123,6 +144,7 @@ const Page = () => {
           small
           label="boom"
         />
+        {/* Définir variable "last" */}
       </div>
       <div className="col contact">
         <h3>Contactez-nous</h3>

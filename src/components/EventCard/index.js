@@ -6,12 +6,13 @@ import "./style.scss";
 const EventCard = ({
   imageSrc,
   imageAlt,
-  date = new Date(),
+  date,
   title,
   label,
   small = false,
   ...props
-}) => (
+}) =>
+ (
     <div
       data-testid="card-testid"
       className={`EventCard${small ? " EventCard--small" : ""}`}
@@ -27,6 +28,7 @@ const EventCard = ({
       </div>
     </div>
   );
+
 
 EventCard.propTypes = {
   imageSrc: PropTypes.string.isRequired,
