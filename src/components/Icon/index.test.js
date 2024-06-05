@@ -11,7 +11,16 @@ describe("Icon component", () => {
     });
     describe("When a icon is created with name facebook", () => {
         it("the icon contain this path hash value bbea4c9e40773b969fdb6e406059f853", () => {
-            // to complete
+            render(<Icon name="facebook" />)
+            expect(md5(screen.getByTestId("icon").getAttribute('d'))).toEqual('327fbc38c8e878259c3ec35ef231517a')
+
+        });
+    });
+    describe("When a icon is created with name twitter", () => {
+        it("the icon contain this path hash value 82f5be4a5c07199cb75dacec50b90b2a", () => {
+            render(<Icon name="twitter" />)
+            expect(md5(screen.getByTestId("icon").getAttribute('d'))).toEqual('82f5be4a5c07199cb75dacec50b90b2a')
+
         });
     });
 })
