@@ -32,6 +32,9 @@ Notes corrections :
      8) Activation de l'affichage de la modal quand le formulaire est envoyé
      9) Correction de l'affichage des mois dans la liste des évènements
 
-- third commit :
+- Third commit :
      1) Modification de l'ordre d'affichage des events dans le slider (du plus vieux au plus récent)
      2) Ajout du label correspondant au type d'évènement dans EventCard
+
+- Last commit :
+     1) Transfert des variables "last" (du composant Home) et "byDateDesc" (du composant Slider) dans le provider afin de gérer le changement de state dans le Provider et non dans le composant qui le consomme.

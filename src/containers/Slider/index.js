@@ -5,21 +5,9 @@ import { getMonth } from "../../helpers/Date";
 import "./style.scss";
 
 const Slider = () => {
-  const { data } = useData();
+  const { byDateDesc } = useData();
   const [index, setIndex] = useState(0);
 
-  const [byDateDesc, setByDateDesc] = useState([])
-
-  useEffect(() => {
-
-    if (data) {
-      const dataFocusSorted = data.focus.sort((evtA, evtB) =>
-        new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
-      )
-      setByDateDesc(dataFocusSorted)
-    }
-  }, [data])
-  
   const nextCard = () => {
      setTimeout(
       () => setIndex(index < byDateDesc.length -1 ? index + 1 : 0), // Ajout de "-1 " à byDateDesc.length l'index max ne peut pas etre égale à la longueur (index n°1 = 0)
